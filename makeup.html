@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bhuvi Makeover Artistry | Bridal Makeup, Saree Pre-Pleating & Beauty Services</title>
+<meta name="description" content="Bhuvi Makeover Artistry – premium bridal makeup, function makeup, saree pre-pleating, saree draping and hairstyling services.">
+<meta name="theme-color" content="#0a0a0a">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+:root{
+  --black:#0a0a0a;
+  --black-2:#121212;
+  --black-3:#1a1a1a;
+  --gold:#d4af37;
+  --gold-light:#f1d98a;
+  --gold-dark:#a67c00;
+  --white:#ffffff;
+  --ivory:#f6f1e7;
+  --muted:#b9b3a5;
+  --gold-grad:linear-gradient(135deg,#a67c00 0%,#d4af37 35%,#f1d98a 55%,#d4af37 75%,#a67c00 100%);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Montserrat',system-ui,sans-serif;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--sans);background:var(--black);color:var(--white);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img{max-width:100%;display:block}
+.container{width:min(1180px,92%);margin-inline:auto}
+section{position:relative;padding:110px 0;overflow:hidden}
+
+/* ---------- Typography helpers ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.75rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before,.eyebrow::after{content:"";width:34px;height:1px;background:var(--gold)}
+.title{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:600;line-height:1.15;margin:14px 0 16px}
+.title span,.gold-text{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.lead{color:var(--muted);max-width:640px;font-weight:300}
+.center{text-align:center}.center .lead{margin-inline:auto}
+.divider{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);margin-top:18px}
+.divider::before,.divider::after{content:"";width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.divider::after{transform:scaleX(-1)}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;border-radius:50px;font-size:.82rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--gold);cursor:pointer;transition:.35s;position:relative;overflow:hidden}
+.btn-gold{background:var(--gold-grad);background-size:200% 100%;color:var(--black);border-color:transparent;font-weight:600}
+.btn-gold:hover{background-position:100% 0;transform:translateY(-3px);box-shadow:0 14px 30px rgba(212,175,55,.35)}
+.btn-line{color:var(--gold);background:transparent}
+.btn-line:hover{background:var(--gold);color:var(--black);transform:translateY(-3px)}
+
+/* ---------- Navbar ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;padding:20px 0;transition:.4s}
+.nav.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(14px);padding:12px 0;border-bottom:1px solid rgba(212,175,55,.25)}
+.nav .container{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--serif)}
+.logo i{font-size:1.5rem;color:var(--gold)}
+.logo b{display:block;font-size:1.6rem;font-weight:700;letter-spacing:.08em;line-height:1}
+.logo small{display:block;font-family:var(--sans);font-size:.55rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.menu{display:flex;gap:34px;align-items:center}
+.menu a{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;position:relative;padding:6px 0;transition:.3s}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:.35s}
+.menu a:hover,.menu a.active{color:var(--gold)}
+.menu a:hover::after,.menu a.active::after{width:100%}
+.nav-cta{padding:11px 24px;font-size:.7rem}
+.burger{display:none;background:none;border:1px solid var(--gold);color:var(--gold);width:46px;height:46px;border-radius:50%;font-size:1.5rem;cursor:pointer;align-items:center;justify-content:center}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;background:radial-gradient(circle at 70% 30%,#241c06 0%,#0a0a0a 60%)}
+.layer{position:absolute;will-change:transform;pointer-events:none}
+.orb{border-radius:50%;filter:blur(2px)}
+.orb.o1{width:460px;height:460px;right:-120px;top:8%;background:radial-gradient(circle at 30% 30%,rgba(241,217,138,.35),rgba(212,175,55,.05) 60%,transparent 70%)}
+.orb.o2{width:300px;height:300px;left:-90px;bottom:6%;background:radial-gradient(circle at 40% 40%,rgba(212,175,55,.3),transparent 70%)}
+.ring{border:1px solid rgba(212,175,55,.35);border-radius:50%}
+.ring.r1{width:560px;height:560px;right:-160px;top:2%}
+.ring.r2{width:380px;height:380px;left:6%;top:14%;border-style:dashed;border-color:rgba(212,175,55,.2)}
+.watermark{font-family:var(--serif);font-weight:700;font-size:clamp(18rem,45vw,38rem);line-height:1;right:4%;top:50%;margin-top:-.5em;color:transparent;-webkit-text-stroke:1px rgba(212,175,55,.18);user-select:none}
+.spark{color:var(--gold);opacity:.7}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,7.4vw,6rem);font-weight:600;line-height:1.02;margin:20px 0 22px}
+.hero h1 em{font-style:italic;font-weight:500}
+.hero p.lead{font-size:1.02rem;margin-bottom:38px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:16px}
+.hero-card{position:relative;aspect-ratio:3/4;max-width:420px;margin-inline:auto;width:100%}
+.frame{position:absolute;inset:0;border:1px solid var(--gold);border-radius:220px 220px 20px 20px;transform:translate(18px,18px)}
+.portrait{position:absolute;inset:0;border-radius:220px 220px 20px 20px;overflow:hidden;background:linear-gradient(160deg,#2b2209,#0a0a0a 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.portrait i.big{font-size:5.5rem;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.portrait h3{font-family:var(--serif);font-size:1.9rem;margin-top:12px}
+.portrait small{color:var(--gold);letter-spacing:.3em;text-transform:uppercase;font-size:.65rem}
+.badge{position:absolute;background:var(--white);color:var(--black);padding:12px 18px;border-radius:14px;display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;box-shadow:0 14px 34px rgba(0,0,0,.5);animation:float 5s ease-in-out infinite}
+.badge i{color:var(--gold-dark);font-size:1.3rem}
+.badge.b1{left:-34px;top:16%}
+.badge.b2{right:-22px;bottom:14%;animation-delay:-2.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.scroll-hint span{width:1px;height:46px;background:linear-gradient(var(--gold),transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- Marquee ---------- */
+.marquee{background:var(--gold-grad);color:var(--black);padding:16px 0;overflow:hidden;white-space:nowrap}
+.marquee .track{display:inline-flex;gap:46px;animation:scrollx 30s linear infinite;font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:.08em}
+.marquee .track span{display:inline-flex;align-items:center;gap:46px}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ---------- About (white section) ---------- */
+.about{background:var(--ivory);color:var(--black)}
+.about .lead{color:#5a5448}
+.about .title{color:var(--black)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;position:relative;z-index:2}
+.about-visual{position:relative;aspect-ratio:1/1.05}
+.tile{position:absolute;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;text-align:center;box-shadow:0 24px 50px rgba(0,0,0,.2)}
+.tile.t1{inset:0 22% 22% 0;background:linear-gradient(150deg,#1a1a1a,#0a0a0a);color:var(--gold)}
+.tile.t2{inset:30% 0 0 30%;background:var(--gold-grad);color:var(--black);border:8px solid var(--ivory)}
+.tile i{font-size:3.4rem}
+.tile span{font-family:var(--serif);font-size:1.3rem;font-weight:600}
+.about-list{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin:28px 0 38px}
+.about-list li{display:flex;gap:12px;align-items:center;font-size:.88rem;font-weight:500}
+.about-list i{color:var(--gold-dark);font-size:1.2rem}
+.about .btn-line{color:var(--black);border-color:var(--black)}
+.about .btn-line:hover{background:var(--black);color:var(--gold)}
+.about .eyebrow{color:var(--gold-dark)}
+.about .eyebrow::before,.about .eyebrow::after{background:var(--gold-dark)}
+.about .gold-text,.about .title span{background:linear-gradient(135deg,#8a6500,#c99a14,#8a6500);-webkit-background-clip:text;background-clip:text}
+
+/* ---------- Services ---------- */
+.services{background:var(--black-2)}
+.services .head{margin-bottom:64px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:2}
+.card{position:relative;background:linear-gradient(160deg,var(--black-3),var(--black));border:1px solid rgba(212,175,55,.2);border-radius:var(--radius);padding:38px 28px;overflow:hidden;transition:.5s cubic-bezier(.2,.8,.2,1)}
+.card::before{content:"";position:absolute;inset:0;background:var(--gold-grad);opacity:0;transition:.5s;z-index:0}
+.card>*{position:relative;z-index:1;transition:.4s}
+.card:hover{transform:translateY(-10px);border-color:var(--gold);box-shadow:0 25px 55px rgba(212,175,55,.18)}
+.card:hover::before{opacity:1}
+.card:hover h3,.card:hover p,.card:hover .ico,.card:hover .num{color:var(--black);-webkit-text-fill-color:var(--black)}
+.card .ico{width:66px;height:66px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-size:1.7rem;color:var(--gold);margin-bottom:24px}
+.card:hover .ico{border-color:var(--black)}
+.card .num{position:absolute;right:22px;top:14px;font-family:var(--serif);font-size:3.4rem;font-weight:700;color:rgba(212,175,55,.14);line-height:1}
+.card h3{font-family:var(--serif);font-size:1.6rem;margin-bottom:10px;font-weight:600}
+.card p{font-size:.86rem;color:var(--muted);font-weight:300}
+
+/* ---------- Parallax band ---------- */
+.band{padding:0;min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--black)}
+.band .bg{position:absolute;inset:-25% 0;background:
+  radial-gradient(circle at 20% 30%,rgba(212,175,55,.25),transparent 40%),
+  radial-gradient(circle at 80% 70%,rgba(212,175,55,.2),transparent 45%),
+  repeating-linear-gradient(45deg,rgba(212,175,55,.05) 0 2px,transparent 2px 38px),
+  linear-gradient(#0a0a0a,#15110a);will-change:transform}
+.band .content{position:relative;z-index:2;padding:90px 0}
+.band blockquote{font-family:var(--serif);font-size:clamp(1.9rem,4.6vw,3.6rem);font-style:italic;font-weight:500;line-height:1.25;max-width:900px;margin:18px auto 30px}
+.band .quote-mark{font-size:3.4rem;color:var(--gold)}
+
+/* ---------- Process ---------- */
+.process{background:var(--ivory);color:var(--black)}
+.process .title{color:var(--black)}
+.process .lead{color:#5a5448}
+.process .eyebrow{color:var(--gold-dark)}
+.process .eyebrow::before,.process .eyebrow::after{background:var(--gold-dark)}
+.process .title span{background:linear-gradient(135deg,#8a6500,#c99a14,#8a6500);-webkit-background-clip:text;background-clip:text}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:64px;position:relative;z-index:2}
+.steps::before{content:"";position:absolute;top:44px;left:12%;right:12%;height:1px;background:repeating-linear-gradient(90deg,var(--gold-dark) 0 8px,transparent 8px 16px)}
+.step{text-align:center;position:relative}
+.step .circle{width:88px;height:88px;border-radius:50%;margin:0 auto 22px;background:var(--black);color:var(--gold);display:grid;place-items:center;font-size:2rem;border:4px solid var(--ivory);box-shadow:0 0 0 1px var(--gold-dark);transition:.4s}
+.step:hover .circle{background:var(--gold-grad);color:var(--black);transform:scale(1.08) rotate(8deg)}
+.step h4{font-family:var(--serif);font-size:1.45rem;font-weight:700;margin-bottom:6px}
+.step p{font-size:.85rem;color:#5a5448}
+
+/* ---------- Gallery ---------- */
+.gallery{background:var(--black)}
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:18px;margin-top:60px;position:relative;z-index:2}
+.g{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(212,175,55,.2);background:linear-gradient(160deg,#241c06,#0a0a0a);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;color:var(--gold);transition:.5s}
+.g img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.g i{font-size:2.2rem;position:relative}
+.g span{font-family:var(--serif);font-size:1.25rem;position:relative;color:var(--white)}
+.g small{position:relative;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+.g:hover{transform:scale(1.03);border-color:var(--gold);box-shadow:0 20px 45px rgba(212,175,55,.2)}
+.g.tall{grid-row:span 2}.g.wide{grid-column:span 2}
+.g:nth-child(3n){background:linear-gradient(160deg,#2f2509,#111)}
+.g:nth-child(4n){background:linear-gradient(200deg,#1a1a1a,#0a0a0a)}
+
+/* ---------- Why ---------- */
+.why{background:var(--black-2)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;position:relative;z-index:2}
+.why-item{display:flex;gap:20px;padding:30px;border-radius:var(--radius);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);transition:.4s}
+.why-item:hover{border-color:var(--gold);background:rgba(212,175,55,.06);transform:translateY(-6px)}
+.why-item i{font-size:2rem;color:var(--gold)}
+.why-item h4{font-family:var(--serif);font-size:1.4rem;margin-bottom:4px}
+.why-item p{font-size:.85rem;color:var(--muted)}
+
+/* ---------- Contact ---------- */
+.contact{background:var(--ivory);color:var(--black)}
+.contact .title{color:var(--black)}
+.contact .lead{color:#5a5448}
+.contact .eyebrow{color:var(--gold-dark)}
+.contact .eyebrow::before,.contact .eyebrow::after{background:var(--gold-dark)}
+.contact .title span{background:linear-gradient(135deg,#8a6500,#c99a14,#8a6500);-webkit-background-clip:text;background-clip:text}
+.c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px;position:relative;z-index:2}
+.c-card{display:flex;align-items:center;gap:18px;padding:26px 28px;border-radius:var(--radius);background:var(--black);color:var(--white);border:1px solid var(--black);transition:.4s;text-align:left}
+.c-card .ci{width:58px;height:58px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--gold-grad);color:var(--black);font-size:1.5rem;transition:.4s}
+.c-card small{display:block;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+.c-card b{font-family:var(--serif);font-size:1.3rem;font-weight:600;word-break:break-word}
+.c-card:hover{transform:translateY(-8px);box-shadow:0 22px 45px rgba(0,0,0,.3);border-color:var(--gold)}
+.c-card:hover .ci{transform:rotate(360deg)}
+.socials{display:flex;justify-content:center;gap:16px;margin-top:50px;flex-wrap:wrap;position:relative;z-index:2}
+.socials a{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;border:1px solid var(--black);color:var(--black);transition:.4s}
+.socials a:hover{background:var(--black);color:var(--gold);transform:translateY(-6px)}
+.hours{margin-top:34px;text-align:center;font-size:.9rem;color:#5a5448;position:relative;z-index:2}
+.hours i{color:var(--gold-dark);margin-right:6px}
+
+/* ---------- Footer ---------- */
+footer{background:var(--black);padding:60px 0 30px;border-top:1px solid rgba(212,175,55,.3);text-align:center}
+footer .logo{justify-content:center;margin-bottom:18px}
+footer p{color:var(--muted);font-size:.82rem}
+.f-links{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:26px 0}
+.f-links a{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.f-links a:hover{color:var(--white)}
+.copy{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;margin-top:10px}
+
+/* ---------- Floating buttons ---------- */
+.fab{position:fixed;right:20px;bottom:22px;z-index:90;display:flex;flex-direction:column;gap:12px}
+.fab a{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;box-shadow:0 10px 26px rgba(0,0,0,.5);transition:.3s}
+.fab a:hover{transform:scale(1.12)}
+.fab .wa{background:#25d366;color:#fff;animation:pulse 2.4s infinite}
+.fab .call{background:var(--gold-grad);color:var(--black)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--gold-grad);z-index:200}
+
+/* ---------- Reveal animations ---------- */
+.reveal{opacity:0;transform:translateY(46px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.left{transform:translateX(-60px)}
+.reveal.right{transform:translateX(60px)}
+.reveal.zoom{transform:scale(.88)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1100px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);row-gap:50px}.steps::before{display:none}
+  .g-grid{grid-template-columns:repeat(3,1fr)}
+  .why-grid,.c-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  section{padding:80px 0}
+  .burger{display:flex}
+  .menu{position:fixed;inset:0 0 0 auto;width:min(320px,82%);background:rgba(10,10,10,.97);backdrop-filter:blur(16px);flex-direction:column;justify-content:center;gap:28px;transform:translateX(100%);transition:.5s cubic-bezier(.2,.8,.2,1);border-left:1px solid var(--gold)}
+  .menu.open{transform:none}
+  .nav-cta{display:none}
+  .hero-grid,.about-grid{grid-template-columns:1fr;gap:50px}
+  .hero{text-align:center;padding-top:120px}
+  .hero .eyebrow,.hero-btns{justify-content:center}
+  .hero p.lead{margin-inline:auto}
+  .hero-card{max-width:320px}
+  .badge.b1{left:-8px}.badge.b2{right:-8px}
+  .about-visual{max-width:440px;margin-inline:auto;width:100%}
+  .scroll-hint{display:none}
+}
+@media (max-width:640px){
+  .grid,.why-grid,.c-grid,.steps{grid-template-columns:1fr}
+  .about-list{grid-template-columns:1fr}
+  .g-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px;gap:12px}
+  .g.wide{grid-column:span 2}
+  .btn{padding:14px 26px;width:100%;justify-content:center}
+  .hero-btns{flex-direction:column}
+  .marquee .track{font-size:1.1rem}
+  .fab{right:14px;bottom:16px}.fab a{width:50px;height:50px;font-size:1.3rem}
+  .ring.r1{width:360px;height:360px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="#home" class="logo" aria-label="Bhuvi Makeover Artistry">
+      <i class="bi bi-gem"></i>
+      <div><b>BHUVI</b><small>Makeover Artistry</small></div>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="https://wa.me/910000000000?text=Hi%20Bhuvi%20Makeover%20Artistry%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="btn btn-gold nav-cta"><i class="bi bi-calendar-heart"></i> Book Now</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Toggle menu"><i class="bi bi-list"></i></button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="layer orb o1" data-speed="0.18"></div>
+  <div class="layer orb o2" data-speed="-0.12"></div>
+  <div class="layer ring r1" data-speed="0.1"></div>
+  <div class="layer ring r2" data-speed="-0.2"></div>
+  <div class="layer watermark" data-speed="0.25">B</div>
+  <i class="layer bi bi-stars spark" style="left:8%;top:22%;font-size:2rem" data-speed="-0.3"></i>
+  <i class="layer bi bi-star-fill spark" style="right:44%;top:16%;font-size:.9rem" data-speed="-0.4"></i>
+  <i class="layer bi bi-stars spark" style="right:10%;bottom:18%;font-size:2.4rem" data-speed="-0.22"></i>
+
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow reveal">Bridal &amp; Beauty Studio</span>
+      <h1 class="reveal d1">Where Every Look Becomes <em class="gold-text">Timeless</em></h1>
+      <p class="lead reveal d2">Bhuvi Makeover Artistry creates flawless bridal makeup, elegant function looks, perfectly pleated sarees and complete makeovers — crafted to make you feel radiant on your most special days.</p>
+      <div class="hero-btns reveal d3">
+        <a href="https://wa.me/910000000000?text=Hi%20Bhuvi%20Makeover%20Artistry%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="btn btn-gold"><i class="bi bi-whatsapp"></i> Book on WhatsApp</a>
+        <a href="#services" class="btn btn-line"><i class="bi bi-stars"></i> Our Services</a>
+      </div>
+    </div>
+    <div class="hero-card reveal zoom d2">
+      <div class="frame"></div>
+      <div class="portrait" data-speed="-0.05">
+        <!-- Replace this block with: <img src="your-photo.jpg" alt="Bridal makeup by Bhuvi"> -->
+        <i class="bi bi-gem big"></i>
+        <h3>Bridal Elegance</h3>
+        <small>Signature Artistry</small>
+      </div>
+      <div class="badge b1"><i class="bi bi-brush-fill"></i> HD &amp; Airbrush Finish</div>
+      <div class="badge b2"><i class="bi bi-patch-check-fill"></i> Premium Products</div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll <span></span></div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Bridal Makeup <i class="bi bi-gem"></i> Saree Pre-Pleating <i class="bi bi-gem"></i> Party Makeup <i class="bi bi-gem"></i> Hairstyling <i class="bi bi-gem"></i> Saree Draping <i class="bi bi-gem"></i> Engagement Looks <i class="bi bi-gem"></i> Reception Makeup <i class="bi bi-gem"></i></span>
+    <span>Bridal Makeup <i class="bi bi-gem"></i> Saree Pre-Pleating <i class="bi bi-gem"></i> Party Makeup <i class="bi bi-gem"></i> Hairstyling <i class="bi bi-gem"></i> Saree Draping <i class="bi bi-gem"></i> Engagement Looks <i class="bi bi-gem"></i> Reception Makeup <i class="bi bi-gem"></i></span>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="layer ring" style="width:420px;height:420px;left:-140px;top:-80px;border-color:rgba(166,124,0,.3)" data-speed="0.12"></div>
+  <div class="layer orb" style="width:320px;height:320px;right:-100px;bottom:-60px;background:radial-gradient(circle,rgba(212,175,55,.25),transparent 70%)" data-speed="-0.1"></div>
+  <div class="container about-grid">
+    <div class="about-visual reveal left">
+      <div class="tile t1" data-speed="0.06"><i class="bi bi-brush"></i><span>Artistry</span></div>
+      <div class="tile t2" data-speed="-0.06"><i class="bi bi-heart-fill"></i><span>Made with Love</span></div>
+    </div>
+    <div class="reveal right">
+      <span class="eyebrow">About Us</span>
+      <h2 class="title">Beauty That Celebrates <span>You</span></h2>
+      <p class="lead">At Bhuvi Makeover Artistry, we believe every woman deserves to look and feel extraordinary. From the first brush stroke to the final saree pleat, each detail is handled with care, precision and a passion for perfection.</p>
+      <p class="lead" style="margin-top:14px">Whether it’s your wedding day or a family function, our personalised approach ensures a look that suits your skin tone, outfit and personality — long-lasting, camera-ready and unmistakably you.</p>
+      <ul class="about-list">
+        <li><i class="bi bi-check-circle-fill"></i> Personalised looks</li>
+        <li><i class="bi bi-check-circle-fill"></i> Skin-friendly products</li>
+        <li><i class="bi bi-check-circle-fill"></i> Long-lasting finish</li>
+        <li><i class="bi bi-check-circle-fill"></i> On-location service</li>
+      </ul>
+      <a href="#contact" class="btn btn-line"><i class="bi bi-telephone"></i> Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="layer orb" style="width:420px;height:420px;left:-140px;top:10%;background:radial-gradient(circle,rgba(212,175,55,.18),transparent 70%)" data-speed="0.14"></div>
+  <div class="layer ring" style="width:500px;height:500px;right:-200px;bottom:0" data-speed="-0.1"></div>
+  <div class="container">
+    <div class="head center reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="title">Our Signature <span>Services</span></h2>
+      <p class="lead">Complete makeover solutions for weddings, functions and everyday glamour.</p>
+      <div class="divider"><i class="bi bi-gem"></i></div>
+    </div>
+    <div class="grid">
+      <article class="card reveal"><span class="num">01</span><div class="ico"><i class="bi bi-gem"></i></div><h3>Bridal Makeup</h3><p>Flawless HD &amp; airbrush bridal looks for muhurtham, wedding and every ritual — radiant from morning to night.</p></article>
+      <article class="card reveal d1"><span class="num">02</span><div class="ico"><i class="bi bi-heart-fill"></i></div><h3>Engagement &amp; Reception</h3><p>Glamorous, camera-ready makeup crafted to match your outfit, theme and the mood of the evening.</p></article>
+      <article class="card reveal d2"><span class="num">03</span><div class="ico"><i class="bi bi-stars"></i></div><h3>Party &amp; Function Makeup</h3><p>Birthdays, baby showers, festivals, family functions and events — look stunning at every celebration.</p></article>
+      <article class="card reveal d3"><span class="num">04</span><div class="ico"><i class="bi bi-scissors"></i></div><h3>Saree Pre-Pleating</h3><p>Neat, uniform pleats ready to wear — pre-pleated and pinned so your saree drapes perfectly in minutes.</p></article>
+      <article class="card reveal"><span class="num">05</span><div class="ico"><i class="bi bi-person-standing-dress"></i></div><h3>Saree Draping</h3><p>Traditional and modern draping styles — Nivi, Bengali, Gujarati, Kerala and more — with secure, comfortable fitting.</p></article>
+      <article class="card reveal d1"><span class="num">06</span><div class="ico"><i class="bi bi-flower1"></i></div><h3>Hairstyling</h3><p>Elegant buns, braids, curls and bridal hair-dos with fresh flower and accessory setting.</p></article>
+      <article class="card reveal d2"><span class="num">07</span><div class="ico"><i class="bi bi-camera-fill"></i></div><h3>Pre-Wedding &amp; Photoshoot</h3><p>Photo-perfect makeup built to shine under lights, lenses and long hours of shooting.</p></article>
+      <article class="card reveal d3"><span class="num">08</span><div class="ico"><i class="bi bi-palette-fill"></i></div><h3>Complete Makeovers</h3><p>Skin prep, draping, hair, jewellery setting and styling — a full head-to-toe transformation, handled for you.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARALLAX BAND ================= -->
+<section class="band" id="quote">
+  <div class="bg" data-speed="0.3" data-band></div>
+  <div class="content container reveal">
+    <i class="bi bi-quote quote-mark"></i>
+    <blockquote>Makeup isn’t about hiding who you are — it’s about <span class="gold-text">revealing</span> the most radiant version of you.</blockquote>
+    <a href="https://wa.me/910000000000?text=Hi%20Bhuvi%20Makeover%20Artistry%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="btn btn-gold"><i class="bi bi-calendar-heart"></i> Reserve Your Date</a>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process" id="process">
+  <div class="layer ring" style="width:480px;height:480px;right:-160px;top:-100px;border-color:rgba(166,124,0,.3)" data-speed="0.1"></div>
+  <div class="container center">
+    <div class="reveal">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="title">Your Journey With <span>Bhuvi</span></h2>
+      <p class="lead">A simple, stress-free process from first message to the final look.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="circle"><i class="bi bi-chat-heart"></i></div><h4>1. Connect</h4><p>Message us on WhatsApp or Instagram with your date and requirements.</p></div>
+      <div class="step reveal d1"><div class="circle"><i class="bi bi-palette"></i></div><h4>2. Plan Your Look</h4><p>We discuss your outfit, skin tone and style to design your perfect look.</p></div>
+      <div class="step reveal d2"><div class="circle"><i class="bi bi-calendar-check"></i></div><h4>3. Confirm</h4><p>Lock your date with a booking confirmation and timing plan.</p></div>
+      <div class="step reveal d3"><div class="circle"><i class="bi bi-stars"></i></div><h4>4. Shine</h4><p>We arrive, create the magic and leave you event-ready and radiant.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="layer orb" style="width:380px;height:380px;right:-120px;top:8%;background:radial-gradient(circle,rgba(212,175,55,.2),transparent 70%)" data-speed="0.15"></div>
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Portfolio</span>
+      <h2 class="title">Our <span>Gallery</span></h2>
+      <p class="lead">A glimpse of the looks we create. Follow us on Instagram for the latest work.</p>
+    </div>
+    <!-- To use real photos: add <img src="photo.jpg" alt="..."> as the first child inside any .g tile -->
+    <div class="g-grid">
+      <div class="g tall reveal zoom"><i class="bi bi-gem"></i><span>Bridal Looks</span><small>Add your photo</small></div>
+      <div class="g reveal zoom d1"><i class="bi bi-flower2"></i><span>Hair &amp; Flowers</span><small>Add your photo</small></div>
+      <div class="g reveal zoom d2"><i class="bi bi-person-standing-dress"></i><span>Saree Draping</span><small>Add your photo</small></div>
+      <div class="g wide reveal zoom d1"><i class="bi bi-heart-fill"></i><span>Engagement &amp; Reception</span><small>Add your photo</small></div>
+      <div class="g reveal zoom"><i class="bi bi-scissors"></i><span>Pre-Pleated Sarees</span><small>Add your photo</small></div>
+      <div class="g reveal zoom d1"><i class="bi bi-stars"></i><span>Party Makeup</span><small>Add your photo</small></div>
+      <div class="g wide reveal zoom d2"><i class="bi bi-camera-fill"></i><span>Pre-Wedding Shoots</span><small>Add your photo</small></div>
+    </div>
+    <div class="center reveal" style="margin-top:48px">
+      <a href="https://instagram.com/bhuvimakeoverartistry" target="_blank" rel="noopener" class="btn btn-line"><i class="bi bi-instagram"></i> View More on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="why" id="why">
+  <div class="layer ring" style="width:460px;height:460px;left:-170px;bottom:-120px" data-speed="-0.12"></div>
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2 class="title">The <span>Bhuvi</span> Difference</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal"><i class="bi bi-award-fill"></i><div><h4>Premium Products</h4><p>Trusted, skin-friendly brands for a flawless, comfortable finish.</p></div></div>
+      <div class="why-item reveal d1"><i class="bi bi-clock-history"></i><div><h4>Punctual &amp; Reliable</h4><p>We arrive on time and plan every step so your event runs smoothly.</p></div></div>
+      <div class="why-item reveal d2"><i class="bi bi-geo-alt-fill"></i><div><h4>Doorstep Service</h4><p>On-location makeup at your home, hall or venue — no travel stress.</p></div></div>
+      <div class="why-item reveal"><i class="bi bi-droplet-half"></i><div><h4>Long-Lasting Finish</h4><p>Sweat-resistant, smudge-proof looks that stay fresh for hours.</p></div></div>
+      <div class="why-item reveal d1"><i class="bi bi-person-heart"></i><div><h4>Personal Attention</h4><p>Every look is customised to your features, outfit and comfort.</p></div></div>
+      <div class="why-item reveal d2"><i class="bi bi-gift-fill"></i><div><h4>Complete Packages</h4><p>Makeup, hair, draping and pleating together in one convenient booking.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="layer orb" style="width:360px;height:360px;left:-120px;top:-60px;background:radial-gradient(circle,rgba(212,175,55,.3),transparent 70%)" data-speed="0.12"></div>
+  <div class="layer ring" style="width:420px;height:420px;right:-150px;bottom:-120px;border-color:rgba(166,124,0,.3)" data-speed="-0.1"></div>
+  <div class="container center">
+    <div class="reveal">
+      <span class="eyebrow">Contact</span>
+      <h2 class="title">Let’s Create Your <span>Perfect Look</span></h2>
+      <p class="lead">Reach out through any of the links below to check availability and book your date.</p>
+    </div>
+
+    <div class="c-grid">
+      <a class="c-card reveal" href="https://wa.me/910000000000?text=Hi%20Bhuvi%20Makeover%20Artistry%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">
+        <span class="ci"><i class="bi bi-whatsapp"></i></span><span><small>WhatsApp</small><b>Chat With Us</b></span>
+      </a>
+      <a class="c-card reveal d1" href="tel:+910000000000">
+        <span class="ci"><i class="bi bi-telephone-fill"></i></span><span><small>Call</small><b>+91 00000 00000</b></span>
+      </a>
+      <a class="c-card reveal d2" href="https://instagram.com/bhuvimakeoverartistry" target="_blank" rel="noopener">
+        <span class="ci"><i class="bi bi-instagram"></i></span><span><small>Instagram</small><b>@bhuvimakeoverartistry</b></span>
+      </a>
+      <a class="c-card reveal" href="https://facebook.com/bhuvimakeoverartistry" target="_blank" rel="noopener">
+        <span class="ci"><i class="bi bi-facebook"></i></span><span><small>Facebook</small><b>Bhuvi Makeover Artistry</b></span>
+      </a>
+      <a class="c-card reveal d1" href="mailto:hello@bhuvimakeover.com">
+        <span class="ci"><i class="bi bi-envelope-fill"></i></span><span><small>Email</small><b>hello@bhuvimakeover.com</b></span>
+      </a>
+      <a class="c-card reveal d2" href="https://maps.google.com/?q=Bhuvi+Makeover+Artistry" target="_blank" rel="noopener">
+        <span class="ci"><i class="bi bi-geo-alt-fill"></i></span><span><small>Location</small><b>Find Us on Maps</b></span>
+      </a>
+    </div>
+
+    <div class="socials reveal">
+      <a href="https://instagram.com/bhuvimakeoverartistry" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://facebook.com/bhuvimakeoverartistry" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="https://youtube.com/@bhuvimakeoverartistry" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      <a href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://t.me/bhuvimakeoverartistry" target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+      <a href="mailto:hello@bhuvimakeover.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+    </div>
+    <p class="hours reveal"><i class="bi bi-clock"></i> Open daily by appointment · Advance booking recommended for wedding season</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <a href="#home" class="logo"><i class="bi bi-gem"></i><div><b>BHUVI</b><small>Makeover Artistry</small></div></a>
+    <p>Bridal makeup · Function makeup · Saree pre-pleating · Draping · Hairstyling</p>
+    <div class="f-links">
+      <a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    </div>
+    <p class="copy">© <span id="year"></span> Bhuvi Makeover Artistry. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ================= FLOATING ACTIONS ================= -->
+<div class="fab">
+  <a class="call" href="tel:+910000000000" aria-label="Call"><i class="bi bi-telephone-fill"></i></a>
+  <a class="wa" href="https://wa.me/910000000000?text=Hi%20Bhuvi%20Makeover%20Artistry%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+</div>
+
+<script>
+(function(){
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  // Year
+  $('#year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  var burger=$('#burger'), menu=$('#menu');
+  function closeMenu(){menu.classList.remove('open');burger.innerHTML='<i class="bi bi-list"></i>'}
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    burger.innerHTML = open ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+  });
+  $$('#menu a').forEach(function(a){a.addEventListener('click',closeMenu)});
+
+  // Reveal on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  $$('.reveal').forEach(function(el){io.observe(el)});
+
+  // Parallax + nav + progress + active link
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var layers = $$('[data-speed]');
+  var nav = $('#nav'), bar = $('#progress');
+  var links = $$('#menu a[href^="#"]');
+  var sections = links.map(function(a){return $(a.getAttribute('href'))});
+  var ticking = false;
+
+  function update(){
+    var y = window.pageYOffset, vh = window.innerHeight;
+    nav.classList.toggle('scrolled', y > 50);
+    var max = document.documentElement.scrollHeight - vh;
+    bar.style.width = (max>0 ? y/max*100 : 0) + '%';
+
+    if(!reduce){
+      layers.forEach(function(el){
+        var host = el.closest('section') || el.parentElement;
+        var r = host.getBoundingClientRect();
+        if(r.bottom < -200 || r.top > vh + 200) return;
+        var speed = parseFloat(el.dataset.speed);
+        var offset = (r.top + r.height/2 - vh/2) * speed * -1;
+        el.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
+      });
+    }
+
+    var pos = y + 140, current = 0;
+    sections.forEach(function(s,i){ if(s && s.offsetTop <= pos) current = i; });
+    links.forEach(function(a,i){ a.classList.toggle('active', i===current); });
+    ticking = false;
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ requestAnimationFrame(update); ticking = true; } },{passive:true});
+  window.addEventListener('resize',update);
+  update();
+
+  // Subtle mouse parallax on hero (desktop only)
+  var hero = $('.hero');
+  if(!reduce && window.matchMedia('(hover:hover) and (min-width:901px)').matches){
+    var card = $('.hero-card');
+    hero.addEventListener('mousemove',function(e){
+      var x=(e.clientX/window.innerWidth-.5), y=(e.clientY/window.innerHeight-.5);
+      card.style.transform='translate3d('+(x*-14)+'px,'+(y*-14)+'px,0)';
+    });
+  }
+})();
+</script>
+</body>
+</html>

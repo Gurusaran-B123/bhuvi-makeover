@@ -60,7 +60,7 @@ section{position:relative;padding:110px 0;overflow:hidden}
 .nav.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(14px);padding:12px 0;border-bottom:1px solid rgba(212,175,55,.25)}
 .nav .container{display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:12px;font-family:var(--serif)}
-.logo i{font-size:1.5rem;color:var(--gold)}
+.logo-img{height:52px;width:auto;object-fit:contain;display:block}
 .logo b{display:block;font-size:1.6rem;font-weight:700;letter-spacing:.08em;line-height:1}
 .logo small{display:block;font-family:var(--sans);font-size:.55rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-top:4px}
 .menu{display:flex;gap:34px;align-items:center}
@@ -82,7 +82,9 @@ section{position:relative;padding:110px 0;overflow:hidden}
 .ring.r2{width:380px;height:380px;left:6%;top:14%;border-style:dashed;border-color:rgba(212,175,55,.2)}
 .watermark{font-family:var(--serif);font-weight:700;font-size:clamp(18rem,45vw,38rem);line-height:1;right:4%;top:50%;margin-top:-.5em;color:transparent;-webkit-text-stroke:1px rgba(212,175,55,.18);user-select:none}
 .spark{color:var(--gold);opacity:.7}
-.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:50px;align-items:center;text-align:center;max-width:860px}
+.hero .eyebrow,.hero-btns{justify-content:center}
+.hero p.lead{margin-inline:auto}
 .hero h1{font-family:var(--serif);font-size:clamp(2.8rem,7.4vw,6rem);font-weight:600;line-height:1.02;margin:20px 0 22px}
 .hero h1 em{font-style:italic;font-weight:500}
 .hero p.lead{font-size:1.02rem;margin-bottom:38px}
@@ -117,6 +119,8 @@ section{position:relative;padding:110px 0;overflow:hidden}
 .tile{position:absolute;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;text-align:center;box-shadow:0 24px 50px rgba(0,0,0,.2)}
 .tile.t1{inset:0 22% 22% 0;background:linear-gradient(150deg,#1a1a1a,#0a0a0a);color:var(--gold)}
 .tile.t2{inset:30% 0 0 30%;background:var(--gold-grad);color:var(--black);border:8px solid var(--ivory)}
+.tile{overflow:hidden}
+.tile img{width:100%;height:100%;object-fit:cover;display:block}
 .tile i{font-size:3.4rem}
 .tile span{font-family:var(--serif);font-size:1.3rem;font-weight:600}
 .about-list{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin:28px 0 38px}
@@ -286,7 +290,8 @@ footer p{color:var(--muted);font-size:.82rem}
 <header class="nav" id="nav">
   <div class="container">
     <a href="#home" class="logo" aria-label="Bhuvi Makeover Artistry">
-      <i class="bi bi-gem"></i>
+      <!-- Put your logo file name in src (e.g. logo.png) -->
+      <img class="logo-img" src="logo.jpg" alt="Bhuvi logo" onerror="this.style.display='none'">
       <div><b>BHUVI</b><small>Makeover Artistry</small></div>
     </a>
     <nav class="menu" id="menu">
@@ -323,17 +328,6 @@ footer p{color:var(--muted);font-size:.82rem}
         <a href="#services" class="btn btn-line"><i class="bi bi-stars"></i> Our Services</a>
       </div>
     </div>
-    <div class="hero-card reveal zoom d2">
-      <div class="frame"></div>
-      <div class="portrait" data-speed="-0.05">
-        <!-- Replace this block with: <img src="your-photo.jpg" alt="Bridal makeup by Bhuvi"> -->
-        <i class="bi bi-gem big"></i>
-        <h3>Bridal Elegance</h3>
-        <small>Signature Artistry</small>
-      </div>
-      <div class="badge b1"><i class="bi bi-brush-fill"></i> HD &amp; Airbrush Finish</div>
-      <div class="badge b2"><i class="bi bi-patch-check-fill"></i> Premium Products</div>
-    </div>
   </div>
   <div class="scroll-hint">Scroll <span></span></div>
 </section>
@@ -352,8 +346,10 @@ footer p{color:var(--muted);font-size:.82rem}
   <div class="layer orb" style="width:320px;height:320px;right:-100px;bottom:-60px;background:radial-gradient(circle,rgba(212,175,55,.25),transparent 70%)" data-speed="-0.1"></div>
   <div class="container about-grid">
     <div class="about-visual reveal left">
-      <div class="tile t1" data-speed="0.06"><i class="bi bi-brush"></i><span>Artistry</span></div>
-      <div class="tile t2" data-speed="-0.06"><i class="bi bi-heart-fill"></i><span>Made with Love</span></div>
+      <!-- Image 1 (large): add <img src="your-image-1.jpg" alt="Bhuvi makeover"> inside this div -->
+      <div class="tile t1" data-speed="0.06"></div>
+      <!-- Image 2 (small, gold border): add <img src="your-image-2.jpg" alt="Bhuvi makeover"> inside this div -->
+      <div class="tile t2" data-speed="-0.06"></div>
     </div>
     <div class="reveal right">
       <span class="eyebrow">About Us</span>
@@ -514,7 +510,7 @@ footer p{color:var(--muted);font-size:.82rem}
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="container">
-    <a href="#home" class="logo"><i class="bi bi-gem"></i><div><b>BHUVI</b><small>Makeover Artistry</small></div></a>
+    <a href="#home" class="logo"><img class="logo-img" src="logo.png" alt="Bhuvi logo" onerror="this.style.display='none'"><div><b>BHUVI</b><small>Makeover Artistry</small></div></a>
     <p>Bridal makeup · Function makeup · Saree pre-pleating · Draping · Hairstyling</p>
     <div class="f-links">
       <a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
@@ -586,15 +582,6 @@ footer p{color:var(--muted);font-size:.82rem}
   window.addEventListener('resize',update);
   update();
 
-  // Subtle mouse parallax on hero (desktop only)
-  var hero = $('.hero');
-  if(!reduce && window.matchMedia('(hover:hover) and (min-width:901px)').matches){
-    var card = $('.hero-card');
-    hero.addEventListener('mousemove',function(e){
-      var x=(e.clientX/window.innerWidth-.5), y=(e.clientY/window.innerHeight-.5);
-      card.style.transform='translate3d('+(x*-14)+'px,'+(y*-14)+'px,0)';
-    });
-  }
 })();
 </script>
 </body>

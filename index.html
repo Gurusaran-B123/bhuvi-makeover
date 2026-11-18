@@ -69,7 +69,23 @@ section{position:relative;padding:110px 0;overflow:hidden}
 .menu a:hover,.menu a.active{color:var(--gold)}
 .menu a:hover::after,.menu a.active::after{width:100%}
 .nav-cta{padding:11px 24px;font-size:.7rem}
-.burger{display:none;background:none;border:1px solid var(--gold);color:var(--gold);width:46px;height:46px;border-radius:50%;font-size:1.5rem;cursor:pointer;align-items:center;justify-content:center}
+/* ---------- Gooey mobile menu ---------- */
+.gooey{display:none;position:fixed;left:20px;bottom:22px;width:60px;height:60px;z-index:95}
+.goo-shapes{position:absolute;inset:0;filter:url(#goo)}
+.blob{position:absolute;left:5px;bottom:5px;width:50px;height:50px;border-radius:50%;background:#d4af37;transition:transform .7s cubic-bezier(.68,-.55,.27,1.55)}
+.blob.main{left:0;bottom:0;width:60px;height:60px}
+.goo-links a{position:absolute;left:5px;bottom:5px;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--black);font-size:1.25rem;opacity:0;pointer-events:none;transform:translateY(0) scale(.5);transition:transform .7s cubic-bezier(.68,-.55,.27,1.55),opacity .3s}
+.goo-links a span{position:absolute;left:62px;white-space:nowrap;padding:6px 14px;border-radius:30px;background:rgba(10,10,10,.94);border:1px solid var(--gold);color:var(--gold);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;opacity:0;transform:translateX(-10px);transition:.35s}
+.goo-toggle{position:absolute;inset:0;width:60px;height:60px;border-radius:50%;border:0;background:transparent;color:var(--black);font-size:1.6rem;display:grid;place-items:center;cursor:pointer;z-index:3;-webkit-tap-highlight-color:transparent}
+.goo-toggle i{transition:transform .5s cubic-bezier(.68,-.55,.27,1.55)}
+.gooey.open .goo-toggle i{transform:rotate(135deg)}
+.gooey.open .blob:not(.main){transform:translateY(calc(var(--i) * -64px))}
+.gooey.open .goo-links a{opacity:1;pointer-events:auto;transform:translateY(calc(var(--i) * -64px)) scale(1);transition-delay:calc(var(--i) * .04s)}
+.gooey.open .goo-links a span{opacity:1;transform:none;transition-delay:calc(var(--i) * .06s + .25s)}
+.gooey .goo-links a:hover{color:var(--black)}
+.gooey .blob.main{animation:gooPulse 2.8s infinite}
+.gooey.open .blob.main{animation:none}
+@keyframes gooPulse{0%{box-shadow:0 0 0 0 rgba(212,175,55,.55)}70%{box-shadow:0 0 0 16px rgba(212,175,55,0)}100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
 
 /* ---------- Hero ---------- */
 .hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;background:radial-gradient(circle at 70% 30%,#241c06 0%,#0a0a0a 60%)}
@@ -251,10 +267,10 @@ footer p{color:var(--muted);font-size:.82rem}
 }
 @media (max-width:900px){
   section{padding:80px 0}
-  .burger{display:flex}
-  .menu{position:fixed;inset:0 0 0 auto;width:min(320px,82%);background:rgba(10,10,10,.97);backdrop-filter:blur(16px);flex-direction:column;justify-content:center;gap:28px;transform:translateX(100%);transition:.5s cubic-bezier(.2,.8,.2,1);border-left:1px solid var(--gold)}
-  .menu.open{transform:none}
-  .nav-cta{display:none}
+  .menu{display:none}
+  .nav .container{justify-content:center}
+  .gooey{display:block}
+  .fab{bottom:22px}
   .hero-grid,.about-grid{grid-template-columns:1fr;gap:50px}
   .hero{text-align:center;padding-top:120px}
   .hero .eyebrow,.hero-btns{justify-content:center}
@@ -291,7 +307,7 @@ footer p{color:var(--muted);font-size:.82rem}
   <div class="container">
     <a href="#home" class="logo" aria-label="Bhuvi Makeover Artistry">
       <!-- Put your logo file name in src (e.g. logo.png) -->
-      <img class="logo-img" src="logo.jpg" alt="Bhuvi logo" onerror="this.style.display='none'">
+      <img class="logo-img" src="logo.png" alt="Bhuvi logo" onerror="this.style.display='none'">
       <div><b>BHUVI</b><small>Makeover Artistry</small></div>
     </a>
     <nav class="menu" id="menu">
@@ -303,7 +319,6 @@ footer p{color:var(--muted);font-size:.82rem}
       <a href="#contact">Contact</a>
       <a href="https://wa.me/910000000000?text=Hi%20Bhuvi%20Makeover%20Artistry%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="btn btn-gold nav-cta"><i class="bi bi-calendar-heart"></i> Book Now</a>
     </nav>
-    <button class="burger" id="burger" aria-label="Toggle menu"><i class="bi bi-list"></i></button>
   </div>
 </header>
 
@@ -519,6 +534,35 @@ footer p{color:var(--muted);font-size:.82rem}
   </div>
 </footer>
 
+<!-- ================= GOOEY MOBILE MENU ================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur"/>
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9" result="goo"/>
+      <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+    </filter>
+  </defs>
+</svg>
+<div class="gooey" id="gooey">
+  <div class="goo-shapes" aria-hidden="true">
+    <span class="blob" style="--i:1"></span>
+    <span class="blob" style="--i:2"></span>
+    <span class="blob" style="--i:3"></span>
+    <span class="blob" style="--i:4"></span>
+    <span class="blob" style="--i:5"></span>
+    <span class="blob main"></span>
+  </div>
+  <nav class="goo-links" aria-label="Mobile menu">
+    <a href="#home" style="--i:1" aria-label="Home"><i class="bi bi-house-heart-fill"></i><span>Home</span></a>
+    <a href="#about" style="--i:2" aria-label="About"><i class="bi bi-person-heart"></i><span>About</span></a>
+    <a href="#services" style="--i:3" aria-label="Services"><i class="bi bi-brush-fill"></i><span>Services</span></a>
+    <a href="#gallery" style="--i:4" aria-label="Gallery"><i class="bi bi-images"></i><span>Gallery</span></a>
+    <a href="#contact" style="--i:5" aria-label="Contact"><i class="bi bi-telephone-fill"></i><span>Contact</span></a>
+  </nav>
+  <button class="goo-toggle" id="gooToggle" aria-label="Open menu" aria-expanded="false"><i class="bi bi-plus-lg"></i></button>
+</div>
+
 <!-- ================= FLOATING ACTIONS ================= -->
 <div class="fab">
   <a class="call" href="tel:+910000000000" aria-label="Call"><i class="bi bi-telephone-fill"></i></a>
@@ -533,14 +577,17 @@ footer p{color:var(--muted);font-size:.82rem}
   // Year
   $('#year').textContent = new Date().getFullYear();
 
-  // Mobile menu
-  var burger=$('#burger'), menu=$('#menu');
-  function closeMenu(){menu.classList.remove('open');burger.innerHTML='<i class="bi bi-list"></i>'}
-  burger.addEventListener('click',function(){
-    var open=menu.classList.toggle('open');
-    burger.innerHTML = open ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
-  });
-  $$('#menu a').forEach(function(a){a.addEventListener('click',closeMenu)});
+  // Gooey mobile menu
+  var gooey=$('#gooey'), gooToggle=$('#gooToggle');
+  function setGoo(open){
+    gooey.classList.toggle('open',open);
+    gooToggle.setAttribute('aria-expanded',open);
+    gooToggle.setAttribute('aria-label',open?'Close menu':'Open menu');
+  }
+  gooToggle.addEventListener('click',function(e){e.stopPropagation();setGoo(!gooey.classList.contains('open'))});
+  $$('.goo-links a').forEach(function(a){a.addEventListener('click',function(){setGoo(false)})});
+  document.addEventListener('click',function(e){if(!gooey.contains(e.target))setGoo(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setGoo(false)});
 
   // Reveal on scroll
   var io = new IntersectionObserver(function(entries){
